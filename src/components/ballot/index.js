@@ -43,6 +43,7 @@ export default function Ballot() {
   const getMyVote = () => {
     ballotAPI.getMyVote().then((res) => {
       setMyVote(res);
+      console.log(res);
       setDidIVote(res[0]);
     });
   };
@@ -60,6 +61,7 @@ export default function Ballot() {
           onVote={handleVote}
           didIVote={didIVote}
           list={proposalList}
+          myVote={myVote}
         />
       </VStack>
     </Center>

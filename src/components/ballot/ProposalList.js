@@ -2,13 +2,14 @@ import React from "react";
 import { Box, Heading, Flex, HStack, Button } from "@chakra-ui/react";
 
 export default function ProposalList(props) {
-  const { list, didIVote, onVote: handleVote } = props;
+  const { list, didIVote, onVote: handleVote, myVote } = props;
   const handleVoteClick = (index) => async () => {
     await handleVote(index);
     alert("Voted");
   };
 
-  console.log(list);
+  console.log("did i");
+  console.log(didIVote);
 
   return (
     <Box>
@@ -22,12 +23,25 @@ export default function ProposalList(props) {
         >
           <Flex justify="space-between">
             <Heading size="lg">{item[0]}</Heading>
-            <HStack>
-              <Box marginRight="10">No of votes: {item[1].toString()}</Box>
+            <Flex justify="space-between">
+              {Number(myVote?.vote?.toString()) === index && didIVote ? (
+                <Box
+                  padding={"1"}
+                  borderRadius="5"
+                  color="black"
+                  backgroundColor="lightgreen"
+                  marginRight="10"
+                >
+                  Voted
+                </Box>
+              ) : null}
+              <Box marginTop="2" marginRight="10">
+                No of votes: {item[1].toString()}
+              </Box>{" "}
               {!didIVote ? (
                 <Button onClick={handleVoteClick(index)}>Vote</Button>
               ) : null}
-            </HStack>
+            </Flex>
           </Flex>
         </Box>
       ))}

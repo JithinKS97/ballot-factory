@@ -26,11 +26,16 @@ export class BallotAPI {
   }
 
   async getMyVote() {
-    return await this.ballotContract.getMyVote();
+    const signer = this.provider.getSigner();
+    return await this.ballotContract.connect(signer).getMyVote();
   }
 
   async vote(proposalIndex) {
     const signer = this.provider.getSigner();
-    await this.ballotContract.connect(signer).vote(proposalIndex);
+    const receipt = await this.ballotContract
+      .connect(signer)
+      .vote(proposalIndex);
+    await receipt.wait();
+    alert("Voted");
   }
 }
