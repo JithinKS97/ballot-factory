@@ -17,25 +17,25 @@ export class BallotAPI {
     );
   }
 
-  async getTitle() {
+  getTitle = async () => {
     return await this.ballotContract.getTitle();
-  }
+  };
 
-  async getProposals() {
+  getProposals = async () => {
     return await this.ballotContract.getProposals();
-  }
+  };
 
-  async getMyVote() {
+  getMyVote = async () => {
     const signer = this.provider.getSigner();
     return await this.ballotContract.connect(signer).getMyVote();
-  }
+  };
 
-  async vote(proposalIndex) {
+  vote = async (proposalIndex) => {
     const signer = this.provider.getSigner();
     const receipt = await this.ballotContract
       .connect(signer)
       .vote(proposalIndex);
     await receipt.wait();
     alert("Voted");
-  }
+  };
 }

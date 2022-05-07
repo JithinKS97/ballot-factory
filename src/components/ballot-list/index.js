@@ -10,7 +10,7 @@ import BallotList from "./BallotList";
 const ballotFactoryAbi = new BallotFactoryAPI();
 
 export default function BallotCreateList() {
-  const { status } = useMetaMask();
+  const { status, connect } = useMetaMask();
   const [ballots, setBallots] = useState([]);
 
   const fetchBallot = () => {
@@ -27,7 +27,7 @@ export default function BallotCreateList() {
   }, []);
 
   const handleConnect = () => {
-    ballotFactoryAbi.connect();
+    connect();
   };
 
   return (
