@@ -1,4 +1,4 @@
-import VotesList from "../src/components/create-vote";
+import VotesList from "../src/components/vote-list";
 
 export default function Home() {
   return <VotesList />;
