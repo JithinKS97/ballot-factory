@@ -11,7 +11,7 @@ export default function ProposalList(props) {
     <Box>
       {list.map((item, index) => (
         <Box
-          width="60vw"
+          width="50vw"
           marginTop="5"
           padding="5"
           border="1px solid grey"

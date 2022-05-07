@@ -16,7 +16,7 @@ export default function BallotList(props) {
       {ballots.map((item, index) => (
         <Box
           cursor={"pointer"}
-          w="40vw"
+          w="50vw"
           padding="5"
           border="1px solid grey"
           marginTop="5"

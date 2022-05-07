@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Button, VStack } from "@chakra-ui/react";
+import { Center, Button, VStack, Heading, Box } from "@chakra-ui/react";
 import CreateBallot from "./CreateBallot";
 import { useMetaMask } from "metamask-react";
 import { useEffect } from "react";
@@ -32,10 +32,15 @@ export default function BallotCreateList() {
 
   return (
     <>
-      <Center margin="10">
+      <Center>
         <VStack>
+          <Heading size="2xl" mb="5" mt="10">
+            Ballot factory
+          </Heading>
           {status === "connected" ? (
-            <CreateBallot onCreate={fetchBallot} />
+            <Box>
+              <CreateBallot onCreate={fetchBallot} />
+            </Box>
           ) : (
             <Button onClick={handleConnect}>Connect</Button>
           )}
