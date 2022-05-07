@@ -15,8 +15,15 @@ export default function Ballot() {
   const [myVote, setMyVote] = useState({});
   const [didIVote, setDidIVote] = useState(false);
   const router = useRouter();
+  const [currentAccount, setCurrentAccount] = useState("");
 
   const { id } = router.query;
+
+  useEffect(() => {
+    window.ethereum.on("accountsChanged", function (accounts) {
+      setCurrentAccount(accounts[0]);
+    });
+  }, []);
 
   useEffect(() => {
     if (!id) {
@@ -26,7 +33,7 @@ export default function Ballot() {
     getTitle();
     getPropsals();
     getMyVote();
-  }, [id]);
+  }, [id, currentAccount, getMyVote]);
 
   const getTitle = () => {
     ballotAPI.getTitle().then((res) => {
