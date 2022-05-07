@@ -12,6 +12,7 @@ const ballotFactoryAbi = new BallotFactoryAPI();
 export default function BallotCreateList() {
   const { status } = useMetaMask();
   const [ballots, setBallots] = useState([]);
+
   const fetchBallot = () => {
     ballotFactoryAbi.getBallots().then((res) => {
       if (!res) {
