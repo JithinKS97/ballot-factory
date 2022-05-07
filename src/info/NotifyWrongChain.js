@@ -16,6 +16,7 @@ export default function NotifyWrongChain() {
       window.ethereum.on("chainChanged", (chainId) => {
         setSelectedChainId(chainId);
       });
+      console.log(window.ethereum.chainId);
       setSelectedChainId(window.ethereum.chainId);
     }
   }, []);
@@ -25,7 +26,7 @@ export default function NotifyWrongChain() {
     if (selectedChainId !== chainId) {
       toastId = toast({
         position: "bottom",
-        description: "Invalid chain selected",
+        description: "Select goerli chain",
         isClosable: false,
         status: "error",
         duration: null,

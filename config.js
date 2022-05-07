@@ -1,6 +1,6 @@
 const config = {
-  contractAddress: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  chainId: "0x7a69",
+  contractAddress: "0x7D574be6475fd108f24bF46EeE4E1e541112Ee91",
+  chainId: "0x5",
 };
 
 export default config;
