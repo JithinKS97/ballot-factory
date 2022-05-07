@@ -19,4 +19,12 @@ export class BallotAPI {
   async getTitle() {
     return await this.ballotContract.getTitle();
   }
+
+  async getProposals() {
+    return await this.ballotContract.getProposals();
+  }
+
+  async getMyVote() {
+    return await this.ballotContract.getMyVote();
+  }
 }
