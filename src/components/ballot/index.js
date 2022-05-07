@@ -43,8 +43,8 @@ export default function Ballot() {
   const getMyVote = () => {
     ballotAPI.getMyVote().then((res) => {
       setMyVote(res);
-      console.log(res);
       setDidIVote(res[0]);
+      getPropsals();
     });
   };
 

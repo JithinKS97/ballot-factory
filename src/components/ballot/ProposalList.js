@@ -5,11 +5,7 @@ export default function ProposalList(props) {
   const { list, didIVote, onVote: handleVote, myVote } = props;
   const handleVoteClick = (index) => async () => {
     await handleVote(index);
-    alert("Voted");
   };
-
-  console.log("did i");
-  console.log(didIVote);
 
   return (
     <Box>
