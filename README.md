@@ -1,5 +1,7 @@
 # Ballot factory
 
+View live dapp at - https://ballot-factory.netlify.app/
+
 Ballot factory is a full stack dapp developed on Ethereum that lets you create open decentralised ballots. Anybody can vote on the proposals in the ballot. This project was created as a learning exercise to build an end to end dapp.
 
 ## Ballot creation
