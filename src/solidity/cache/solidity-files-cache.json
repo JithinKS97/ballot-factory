@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/jithinks/Desktop/on-chain-vote/app/src/solidity/contracts/Ballot.sol": {
-      "lastModificationDate": 1651905652761,
-      "contentHash": "494a5dc776a017cb49e565bd642cdb92",
+      "lastModificationDate": 1651919842643,
+      "contentHash": "c5f7bcebc489e8e33c781526c8f6ad7c",
       "sourceName": "contracts/Ballot.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -74,7 +74,7 @@
       ]
     },
     "/Users/jithinks/Desktop/on-chain-vote/app/src/solidity/contracts/BallotFactory.sol": {
-      "lastModificationDate": 1651906182180,
+      "lastModificationDate": 1651922896255,
       "contentHash": "ee19ab798b5d4a4459084fa8a5a7ba2a",
       "sourceName": "contracts/BallotFactory.sol",
       "solcConfig": {
