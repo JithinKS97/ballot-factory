@@ -1,5 +1,5 @@
-import VotesList from "../src/components/vote-list";
+import BallotList from "../src/components/ballot-list";
 
 export default function Home() {
-  return <VotesList />;
+  return <BallotList />;
 }
