@@ -7,15 +7,31 @@ const ballotFactoryAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 const ballotFactoryAbi = ballotFactoryArtifact["abi"];
 
-const signer = provider.getSigner();
-
 const ballotFactoryContract = new ethers.Contract(
   ballotFactoryAddress,
   ballotFactoryAbi,
   provider
 );
 
-export const getAllBallots = async () => {
+export const connect = async () => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+  await provider.send("eth_requestAccounts", []);
+};
+
+export const isConnected = async () => {
+  return window.ethereum.isConnected();
+};
+
+export const getBallots = async () => {
   const res = await ballotFactoryContract.getBallots();
+  console.log(res);
+};
+
+export const createBallot = async (proposalList, title) => {
+  console.log(proposalList, title);
+  const signer = provider.getSigner();
+  const res = await ballotFactoryContract
+    .connect(signer)
+    .createBallot(proposalList, title);
   console.log(res);
 };

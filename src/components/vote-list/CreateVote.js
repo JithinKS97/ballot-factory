@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Button } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import ProposalModal from "./ProposalModal";
 import { useState } from "react";
+import { createBallot } from "../../api/ballotFactoryAPI";
 
 export default function CreateVote() {
   const [isProposalModalOpen, setIsProposalModalOpen] = useState(false);
@@ -14,9 +15,9 @@ export default function CreateVote() {
     setIsProposalModalOpen(false);
   };
 
-  const handleProposalsSubmit = (titleAndProposals) => {
-    console.log(titleAndProposals);
+  const handleProposalsSubmit = async (titleAndProposals) => {
     setIsProposalModalOpen(false);
+    await createBallot(titleAndProposals.proposalList, titleAndProposals.title);
   };
 
   return (
@@ -26,9 +27,7 @@ export default function CreateVote() {
         isOpen={isProposalModalOpen}
         onSubmit={handleProposalsSubmit}
       />
-      <Box margin="10">
-        <Button onClick={handleCreateClick}>Create a new vote</Button>
-      </Box>
+      <Button onClick={handleCreateClick}>Create a new vote</Button>
     </>
   );
 }

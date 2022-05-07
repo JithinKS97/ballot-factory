@@ -7180,6 +7180,11 @@
     "rlp" "^2.0.0"
     "semaphore" ">=1.0.1"
 
+"metamask-react@^2.3.0":
+  "integrity" "sha512-42Vz5DcXjr2KPe5W4uh4Vdbbjxtc5Sws85hTj9HVmv+I4NbSDJsV9ZtWH/rgaSpukOrpSjzHas1TN000YmYVCg=="
+  "resolved" "https://registry.npmjs.org/metamask-react/-/metamask-react-2.3.0.tgz"
+  "version" "2.3.0"
+
 "methods@~1.1.2":
   "integrity" "sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4="
   "resolved" "https://registry.npmjs.org/methods/-/methods-1.1.2.tgz"
