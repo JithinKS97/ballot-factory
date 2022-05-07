@@ -18,7 +18,15 @@ export default function Ballot() {
 
   const { id } = router.query;
 
-  ballotAPI = new BallotAPI(id);
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    ballotAPI = new BallotAPI(id);
+    getTitle();
+    getPropsals();
+    getMyVote();
+  }, [id]);
 
   const getTitle = () => {
     ballotAPI.getTitle().then((res) => {
@@ -39,17 +47,20 @@ export default function Ballot() {
     });
   };
 
-  useEffect(() => {
-    getTitle();
-    getPropsals();
+  const handleVote = async (proposalIndex) => {
+    await ballotAPI.vote(proposalIndex);
     getMyVote();
-  }, []);
+  };
 
   return (
     <Center padding={"10"}>
       <VStack>
         <Heading>{title}</Heading>
-        <ProposalList didIVote={didIVote} list={proposalList} />
+        <ProposalList
+          onVote={handleVote}
+          didIVote={didIVote}
+          list={proposalList}
+        />
       </VStack>
     </Center>
   );

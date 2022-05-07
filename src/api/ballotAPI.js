@@ -8,6 +8,7 @@ export class BallotAPI {
     if (typeof window === "undefined") {
       return;
     }
+    this.initialized = true;
     this.provider = new ethers.providers.Web3Provider(window.ethereum, "any");
     this.ballotContract = new ethers.Contract(
       ballotAddress,
@@ -26,5 +27,10 @@ export class BallotAPI {
 
   async getMyVote() {
     return await this.ballotContract.getMyVote();
+  }
+
+  async vote(proposalIndex) {
+    const signer = this.provider.getSigner();
+    await this.ballotContract.connect(signer).vote(proposalIndex);
   }
 }
