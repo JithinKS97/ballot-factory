@@ -8,12 +8,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+const INFURA_PROJECT_ID = "";
+const INFURA_PRIVATE_KEY = "";
+
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    ropsten: {
-      url: `https://eth-ropsten.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-      accounts: [`${ROPSTEN_PRIVATE_KEY}`],
+    goerli: {
+      url: `https://goerli.infura.io/v3/${INFURA_PROJECT_ID}`,
+      accounts: [`${INFURA_PRIVATE_KEY}`],
     },
   },
 };
