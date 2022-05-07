@@ -19,16 +19,24 @@ export class BallotFactoryAPI {
   }
 
   async getBallots() {
-    const res = await this.ballotFactoryContract.getBallots();
-    return res;
+    try {
+      const res = await this.ballotFactoryContract.getBallots();
+      return res;
+    } catch (err) {
+      console.log("Unable to fetch ballots");
+    }
   }
 
   async createBallot(proposalList, title) {
-    const signer = this.provider.getSigner();
-    const receipt = await this.ballotFactoryContract
-      .connect(signer)
-      .createBallot(proposalList, title);
-    await receipt.wait();
-    alert("Submitted ballot");
+    try {
+      const signer = this.provider.getSigner();
+      const receipt = await this.ballotFactoryContract
+        .connect(signer)
+        .createBallot(proposalList, title);
+      await receipt.wait();
+      alert("Submitted ballot");
+    } catch (err) {
+      console.log("Unable to create ballot");
+    }
   }
 }

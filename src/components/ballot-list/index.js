@@ -14,7 +14,9 @@ export default function BallotCreateList() {
   const [ballots, setBallots] = useState([]);
   const fetchBallot = () => {
     ballotFactoryAbi.getBallots().then((res) => {
-      console.log(res);
+      if (!res) {
+        return;
+      }
       setBallots(res);
     });
   };
