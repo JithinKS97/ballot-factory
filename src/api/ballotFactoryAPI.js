@@ -1,8 +1,6 @@
 import { ethers } from "ethers";
 import ballotFactoryArtifact from "../solidity/artifacts/contracts/BallotFactory.sol/BallotFactory.json";
-
-const ballotFactoryAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-
+import config from "../../config";
 const ballotFactoryAbi = ballotFactoryArtifact["abi"];
 
 export class BallotFactoryAPI {
@@ -12,7 +10,7 @@ export class BallotFactoryAPI {
     }
     this.provider = new ethers.providers.Web3Provider(window.ethereum, "any");
     this.ballotFactoryContract = new ethers.Contract(
-      ballotFactoryAddress,
+      config.contractAddress,
       ballotFactoryAbi,
       this.provider
     );

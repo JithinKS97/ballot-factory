@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Flex, HStack, Button } from "@chakra-ui/react";
+import { Box, Heading, Flex, Button } from "@chakra-ui/react";
 
 export default function ProposalList(props) {
   const { list, didIVote, onVote: handleVote, myVote } = props;
@@ -27,6 +27,8 @@ export default function ProposalList(props) {
                   color="black"
                   backgroundColor="lightgreen"
                   marginRight="10"
+                  fontWeight={"bold"}
+                  paddingTop="2"
                 >
                   Voted
                 </Box>

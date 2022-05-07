@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ProposalList from "./ProposalList";
 import { useRouter } from "next/router";
+import { useCallback } from "react";
 
 let ballotAPI;
 
@@ -22,6 +23,14 @@ export default function Ballot() {
   useEffect(() => {
     window.ethereum.on("accountsChanged", function (accounts) {
       setCurrentAccount(accounts[0]);
+    });
+  }, []);
+
+  const getMyVote = useCallback(() => {
+    ballotAPI.getMyVote().then((res) => {
+      setMyVote(res);
+      setDidIVote(res[0]);
+      getPropsals();
     });
   }, []);
 
@@ -44,14 +53,6 @@ export default function Ballot() {
   const getPropsals = () => {
     ballotAPI.getProposals().then((res) => {
       setProposalList(res);
-    });
-  };
-
-  const getMyVote = () => {
-    ballotAPI.getMyVote().then((res) => {
-      setMyVote(res);
-      setDidIVote(res[0]);
-      getPropsals();
     });
   };
 
