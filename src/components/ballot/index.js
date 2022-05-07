@@ -1,10 +1,11 @@
 import React from "react";
-import { Center, Heading, VStack } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { Heading, VStack, Button } from "@chakra-ui/react";
+import Link from "next/link";
 import { BallotAPI } from "../../api/ballotAPI";
 import { useEffect } from "react";
 import { useState } from "react";
 import ProposalList from "./ProposalList";
+import { useRouter } from "next/router";
 
 let ballotAPI;
 
@@ -13,7 +14,6 @@ export default function Ballot() {
   const [proposalList, setProposalList] = useState([]);
   const [myVote, setMyVote] = useState({});
   const [didIVote, setDidIVote] = useState(false);
-
   const router = useRouter();
 
   const { id } = router.query;
@@ -54,8 +54,8 @@ export default function Ballot() {
   };
 
   return (
-    <Center padding={"10"}>
-      <VStack>
+    <>
+      <VStack minHeight={"100vh"} padding={"10"}>
         <Heading>{title}</Heading>
         <ProposalList
           onVote={handleVote}
@@ -63,7 +63,12 @@ export default function Ballot() {
           list={proposalList}
           myVote={myVote}
         />
+        <Link href="/">
+          <Button position="absolute" bottom="10">
+            Back
+          </Button>
+        </Link>
       </VStack>
-    </Center>
+    </>
   );
 }

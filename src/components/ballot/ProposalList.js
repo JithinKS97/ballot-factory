@@ -34,9 +34,12 @@ export default function ProposalList(props) {
               <Box marginTop="2" marginRight="10">
                 No of votes: {item[1].toString()}
               </Box>{" "}
-              {!didIVote ? (
-                <Button onClick={handleVoteClick(index)}>Vote</Button>
-              ) : null}
+              <Button
+                visibility={!didIVote ? "visible" : "hidden"}
+                onClick={handleVoteClick(index)}
+              >
+                Vote
+              </Button>
             </Flex>
           </Flex>
         </Box>
