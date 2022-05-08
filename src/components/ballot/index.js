@@ -70,6 +70,7 @@ export default function Ballot() {
           didIVote={didIVote}
           list={proposalList}
           myVote={myVote}
+          isAccountSelected={!!currentAccount}
         />
         <Link href="/">
           <Button position="absolute" bottom="10">
