@@ -36,6 +36,5 @@ export class BallotAPI {
       .connect(signer)
       .vote(proposalIndex);
     await receipt.wait();
-    alert("Voted");
   };
 }

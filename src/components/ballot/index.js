@@ -7,6 +7,7 @@ import { useState } from "react";
 import ProposalList from "./ProposalList";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
+import { useToast } from "@chakra-ui/react";
 
 let ballotAPI;
 
@@ -17,6 +18,8 @@ export default function Ballot() {
   const [didIVote, setDidIVote] = useState(false);
   const router = useRouter();
   const [currentAccount, setCurrentAccount] = useState("");
+  const toast = useToast();
+  const toastIdRef = React.useRef();
 
   const { id } = router.query;
 
@@ -76,7 +79,20 @@ export default function Ballot() {
   };
 
   const handleVote = async (proposalIndex) => {
+    toastIdRef.current = toast({
+      description: "Voting is being done...",
+      status: "info",
+      duration: null,
+      position: "top-right",
+    });
     await ballotAPI.vote(proposalIndex);
+    toast.close(toastIdRef.current);
+    toast({
+      description: "Voting done...",
+      status: "success",
+      duration: 2000,
+      position: "top-right",
+    });
     getMyVote();
   };
 

@@ -32,7 +32,6 @@ export class BallotFactoryAPI {
         .connect(signer)
         .createBallot(proposalList, title);
       await receipt.wait();
-      alert("Submitted ballot");
     } catch (err) {
       console.log("Unable to create ballot");
     }

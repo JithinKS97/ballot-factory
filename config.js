@@ -1,5 +1,5 @@
 const config = {
-  contractAddress: "0x7D574be6475fd108f24bF46EeE4E1e541112Ee91",
+  contractAddress: "0xa508b50911D16012024F3266BF8706EBa94C6EE3",
   chainId: "0x5",
 };
 
