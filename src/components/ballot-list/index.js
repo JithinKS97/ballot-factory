@@ -30,6 +30,12 @@ export default function BallotCreateList() {
     connect();
   };
 
+  useEffect(() => {
+    window.ethereum.on("chainChanged", (chainId) => {
+      fetchBallot();
+    });
+  }, []);
+
   return (
     <>
       <Center>
