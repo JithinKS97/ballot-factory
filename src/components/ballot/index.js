@@ -22,8 +22,27 @@ export default function Ballot() {
 
   useEffect(() => {
     window.ethereum.on("accountsChanged", function (accounts) {
-      setCurrentAccount(accounts[0]);
+      if (accounts[0]) {
+        setCurrentAccount(accounts[0]);
+      } else {
+        setCurrentAccount("");
+        setDidIVote(false);
+        setMyVote(null);
+      }
     });
+  }, []);
+
+  useEffect(() => {
+    window.ethereum
+      .request({ method: "eth_requestAccounts" })
+      .then((accounts) => {
+        console.log("here");
+        console.log(accounts);
+        setCurrentAccount(accounts[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const getMyVote = useCallback(() => {
