@@ -8,15 +8,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const GOERLI_PROJECT_ID = "";
-const GOERLI_PRIVATE_KEY = "";
+const RINKEBY_PROJECT_ID = "";
+const RINKEBY_PRIVATE_KEY = "";
 
 module.exports = {
   solidity: "0.8.4",
   networks: {
     goerli: {
-      url: `https://goerli.infura.io/v3/${GOERLI_PROJECT_ID}`,
-      accounts: [`${GOERLI_PRIVATE_KEY}`],
+      url: `https://rinkeby.infura.io/v3/${RINKEBY_PROJECT_ID}`,
+      accounts: [`${RINKEBY_PRIVATE_KEY}`],
     },
   },
 };

@@ -26,7 +26,7 @@ export default function NotifyWrongChain() {
     if (selectedChainId !== chainId) {
       toastId = toast({
         position: "bottom",
-        description: "Select goerli chain",
+        description: "Select rinkeby chain",
         isClosable: false,
         status: "error",
         duration: null,
