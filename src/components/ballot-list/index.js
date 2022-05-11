@@ -39,7 +39,7 @@ export default function BallotCreateList() {
   return (
     <>
       <Center>
-        <VStack>
+        <VStack mb="20">
           <Heading size="2xl" mb="5" mt="10">
             Ballot factory
           </Heading>
